@@ -46,8 +46,18 @@ router.get('/statistics/brands', async (request, response) => {
     try {
         const selectvehicles = await database.selectvehicles();
 
+        const stats = {};
+
+        selectvehicles.forEach((element) => {
+            if (stats[element.brand]) {
+                stats[element.brand]++;
+            } else {
+                stats[element.brand] = 1;
+            }
+        });
+
         response.status(200).json({
-            results: fasz
+            stats
         });
     } catch (error) {
         response.status(500).json({

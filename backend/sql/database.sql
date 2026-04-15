@@ -20,9 +20,12 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `gepjarmu`
 --
+CREATE DATABASE gepjarmu
+DEFAULT CHARACTER SET 'utf8'
+COLLATE 'utf8_hungarian_ci';
 
 -- --------------------------------------------------------
-
+USE gepjarmu;
 --
 -- Tábla szerkezet ehhez a táblához `vehicles`
 --
