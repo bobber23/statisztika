@@ -4,7 +4,7 @@ const pool = mysql.createPool({
     host: '127.0.0.1',
     user: 'root',
     password: '',
-    database: 'exampledb',
+    database: 'gepjarmu',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
@@ -16,7 +16,14 @@ async function selectall() {
     const [rows] = await pool.execute(query);
     return rows;
 }
+
+async function selectvehicles() {
+    const query = 'SELECT * FROM vehicles;';
+    const [rows] = await pool.execute(query);
+    return rows;
+}
 //!Export
 module.exports = {
-    selectall
+    selectall,
+    selectvehicles
 };

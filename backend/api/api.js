@@ -41,4 +41,19 @@ router.get('/testsql', async (request, response) => {
     }
 });
 
+//?GET /statistics/brands
+router.get('/statistics/brands', async (request, response) => {
+    try {
+        const selectvehicles = await database.selectvehicles();
+
+        response.status(200).json({
+            results: fasz
+        });
+    } catch (error) {
+        response.status(500).json({
+            message: 'Ez a végpont nem működik.'
+        });
+    }
+});
+
 module.exports = router;
